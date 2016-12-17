@@ -1,0 +1,25 @@
+* v0.1
+	* 根据命令参数，读取对应文件写入本机hosts
+	* 校验文件格式的正确性
+	* 要输出提示语，提醒已切换到的环境
+	* 默认不输出host内容，可以通过参数指定在切换的同时输出内容
+
+* v0.2
+	* 每次切换前都需要先校验文件的正确性再写入
+	* 增加绑定(格式化插入)
+		* -a 加入一行绑定，如果存在，更新；不存在，添加；如果文件不存在，创建后添加绑定
+    	* cbind -a [pre|daily|beta] 12.34.56.78 abc.efg.com
+	* 删除绑定
+		* -d 删除一行或多行，通过IP或域名指定
+			* cbind -d [pre|daily|beta] 1.2.3.4
+			* cbind -d [pre|daily|beta] taobao.com
+			* cbind -d [pre|daily|beta] tencent.com baidu.com
+			* cbind -d [pre|daily|beta] * (删除所有)
+  * 注释绑定
+  	* -n 注释掉一行或多行，根据IP或域名指定
+  		* cbind -n [pre|daily|beta] 1.2.3.4
+			* cbind -n [pre|daily|beta] taobao.com
+			* cbind -n [pre|daily|beta] tencent.com baidu.com
+			* cbind -n [pre|daily|beta] * (注释所有)
+    * 显示各个环境下的hosts绑定
+    * 格式化
